@@ -22,10 +22,10 @@
         android:allowBackup="true"
         android:banner="@mipmap/ic_banner"
         android:fullBackupContent="@xml/full_backup_content"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/application_name"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/BootstrapTheme"
         tools:ignore="GoogleAppIndexingWarning"
@@ -189,7 +189,7 @@
         <service
             android:name=".TileService"
             android:exported="true"
-            android:icon="@drawable/ic_logo_service"
+            android:icon="@drawable/logo"
             android:label="@string/launch_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>

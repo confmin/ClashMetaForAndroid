@@ -64,10 +64,10 @@
                         android:layout_height="@dimen/large_item_header_layout_size">
 
                         <View
-                            android:layout_width="@dimen/main_logo_size"
-                            android:layout_height="@dimen/main_logo_size"
+                            android:layout_width="49dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center"
-                            android:background="@drawable/ic_clash" />
+                            android:background="@drawable/logo" />
                     </FrameLayout>
 
                     <TextView
@@ -116,15 +116,15 @@
                     app:icon="@drawable/ic_baseline_swap_vertical_circle"
                     app:text="@string/providers" />
 
-                <com.github.kr328.clash.design.view.LargeActionLabel
+                <!-- <com.github.kr328.clash.design.view.LargeActionLabel
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/main_label_margin_vertical"
                     android:onClick="@{() -> self.request(Request.OpenLogs)}"
                     app:icon="@drawable/ic_baseline_assignment"
-                    app:text="@string/logs" />
+                    app:text="@string/logs" /> -->
 
-                <com.github.kr328.clash.design.view.LargeActionLabel
+                <!-- <com.github.kr328.clash.design.view.LargeActionLabel
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/main_label_margin_vertical"
@@ -146,7 +146,7 @@
                     android:layout_marginVertical="@dimen/main_label_margin_vertical"
                     android:onClick="@{() -> self.request(Request.OpenAbout)}"
                     app:icon="@drawable/ic_baseline_info"
-                    app:text="@string/about" />
+                    app:text="@string/about" /> -->
             </LinearLayout>
         </ScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

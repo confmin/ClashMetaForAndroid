@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.github.kr328.clash.common.util.intent
 import com.github.kr328.clash.common.util.ticker
+import com.github.kr328.clash.core.Clash
 import com.github.kr328.clash.design.MainDesign
 import com.github.kr328.clash.design.ui.ToastDuration
 import com.github.kr328.clash.util.startClashService
@@ -17,6 +18,7 @@ import com.github.kr328.clash.util.stopClashService
 import com.github.kr328.clash.util.withClash
 import com.github.kr328.clash.util.withProfile
 import com.github.kr328.clash.core.bridge.*
+import com.github.kr328.clash.core.model.TunnelState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.selects.select
@@ -41,7 +43,17 @@ class MainActivity : BaseActivity<MainDesign>() {
                         Event.ActivityStart,
                         Event.ServiceRecreated,
                         Event.ClashStop, Event.ClashStart,
-                        Event.ProfileLoaded, Event.ProfileChanged -> design.fetch()
+                        Event.ProfileLoaded, Event.ProfileChanged -> {
+                            design.fetch()
+                            if (it == Event.ClashStart) {
+                                withClash {
+                                    val o = queryOverride(Clash.OverrideSlot.Session)
+                                    o.mode = TunnelState.Mode.Global
+                                    o.unifiedDelay = true
+                                    patchOverride(Clash.OverrideSlot.Session, o)
+                                }
+                            }
+                        }
                         else -> Unit
                     }
                 }
